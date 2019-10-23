@@ -10,8 +10,11 @@ class ProfileRequest extends Request {
  */
   public function rules () {
     return [
-      'title' => 'required|unique:posts|max:255',
-      'body' => 'required',
+      'first_name' => 'nullable',
+      'last_name' => 'nullable',
+      'middle_name' => 'nullable',
+      'place_of_birth' => 'nullable',
+      'date_of_birth' => 'nullable|date',
     ];
   }
 

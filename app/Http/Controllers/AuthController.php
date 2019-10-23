@@ -9,11 +9,11 @@ use Validator;
 class AuthController extends Controller
 {
     /**
-    login api 
-    @return \Illuminate\Http\Response 
+    * login api 
+    * @return \Illuminate\Http\Response 
     */
     public function login() { 
-        if( Auth::attempt(['email' => Request('email'), 'password' => Request('password')])) { 
+        if( Auth::attempt(['phone_number' => Request('phone_number'), 'password' => Request('password')])) { 
             $user = Auth::user(); 
             $success['token'] = $user->createToken('myApp')->accessToken; 
             return response()->json(['success' => $success], 200); 
@@ -23,13 +23,14 @@ class AuthController extends Controller
     }
 
 /** Register api 
-@return \Illuminate\Http\Response 
+* @return \Illuminate\Http\Response 
 */ 
     public function register(Request $request) { 
         $validator = Validator::make(
             $request->all(), [ 'name' => 'required', 
-                                'email' => 'required|email', 
-                                'password' => 'required', 
+                                'email' => 'nullable|email', 
+                                'phone_number' => 'required|numeric',
+                                'password' => 'required|alpha_num', 
                                 'confirm_password' => 'required|same:password', 
                             ]); 
         if ($validator->fails()) { 
