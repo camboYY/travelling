@@ -1,4 +1,4 @@
-<?php namespace App\Modules\User\Repositories;
+<?php namespace Sharewithme\User\Repositories;
 
 interface ProfileRepositoryInterface {
       /**

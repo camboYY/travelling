@@ -45,4 +45,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Modules\User\Models\Profile');
     }
 
+    /**
+     * Get the reset password record associated with the user.
+     */
+    public function resetPassword () {
+        return $this->hasOne('App\Modules\User\Models\PasswordReset', 'phone_number');
+    }
 }

@@ -1,0 +1,12 @@
+{
+    "name": "sharewithme/user",
+    "description": "This is user package ",
+    "authors": [
+        {
+            "name": "YOEUN Yous",
+            "email": "yous@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

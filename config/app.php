@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Barryvdh\Cors\ServiceProvider::class,
-
+        Sharewithme\User\UserServiceProvider::class,
     ],
 
     /*

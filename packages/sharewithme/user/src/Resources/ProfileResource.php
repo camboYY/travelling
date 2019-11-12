@@ -1,4 +1,4 @@
-<?php namespace App\Modules\User\Resources;
+<?php namespace Sharewithme\User\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

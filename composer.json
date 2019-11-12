@@ -35,7 +35,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Sharewithme\\User\\": "packages/sharewithme/user/src"
         },
         "classmap": [
             "database/seeds",

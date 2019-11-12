@@ -1,4 +1,4 @@
-<?php namespace App\Modules\User\Models;
+<?php namespace Sharewithme\User\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model {
