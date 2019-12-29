@@ -1,4 +1,5 @@
-<?php namespace Sharewithme\User\Resources;
+<?php 
+namespace Sharewithme\User\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
