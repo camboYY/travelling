@@ -8,5 +8,11 @@ pipeline {
                 sh 'node --version'
             }
         }
+
+	stage('build') {
+            steps {
+                sh 'java --version'
+            }
+        }
     }
 }
