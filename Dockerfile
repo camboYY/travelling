@@ -1,14 +1,10 @@
-FROM node:6.11.5
+FROM php:7
+RUN apt-get update -y && apt-get install -y openssl zip unzip git
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN docker-php-ext-install pdo mbstring
+WORKDIR /app
+COPY . /app
+RUN composer install
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY package.json .
-RUN npm install
-COPY . .
-
-ARG DOCKER_ENV
-ENV NODE_ENV=${DOCKER_ENV}
-
-EXPOSE 9090
-CMD [ "npm", "start" ]
-
+CMD php artisan serve --host=0.0.0.0 --port=8181
+EXPOSE 8181
