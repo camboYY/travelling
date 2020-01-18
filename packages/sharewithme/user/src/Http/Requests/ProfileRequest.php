@@ -1,4 +1,6 @@
-<?php namespace Sharewithme\User\Requests;
+<?php 
+namespace Sharewithme\User\Http\Requests;
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProfileRequest extends FormRequest {

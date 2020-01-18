@@ -1,4 +1,4 @@
-<?php namespace Sharewithme\User\Controllers;
+<?php namespace Sharewithme\User\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Modules\User\Requests\ProfileRequest;
 use App\Modules\User\Resource\ProfileResource;
