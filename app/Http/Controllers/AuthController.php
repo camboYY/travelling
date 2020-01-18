@@ -16,7 +16,7 @@ class AuthController extends Controller
         if( Auth::attempt(['phone_number' => Request('phone_number'), 'password' => Request('password')])) { 
             $user = Auth::user(); 
             $success['token'] = $user->createToken('myApp')->accessToken; 
-            return response()->json(['success' => $success], 200); 
+            return response()->json(['data' => $success, 'success' => true], 200); 
         } else { 
             return response()->json(['error' => 'Unauthorised'], 401); 
         } 
@@ -41,8 +41,8 @@ class AuthController extends Controller
         $input['password'] = bcrypt($input['password']); 
         $user = User::create($input); 
         $success['token'] = $user->createToken('myApp')->accessToken; 
-        $success['name'] = $user->name; 
-        return response()->json(['success'=>$success], 200); 
+        $success['name'] = $user->name;
+        return response()->json(['data'=>$success, 'success' => true], 200); 
     } 
 }
 

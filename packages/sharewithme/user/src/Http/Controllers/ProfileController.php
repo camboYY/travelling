@@ -1,8 +1,10 @@
-<?php namespace Sharewithme\User\Http\Controllers;
+<?php 
+namespace Sharewithme\User\Http\Controllers;
+
 use App\Http\Controllers\Controller;
-use App\Modules\User\Requests\ProfileRequest;
-use App\Modules\User\Resource\ProfileResource;
-use App\Modules\User\Repositories\ProfileRepositoryInterface as Profile;
+use Sharewithme\User\Http\Requests\ProfileRequest;
+use Sharewithme\User\Http\Requests\ProfileResource;
+use Sharewithme\User\Repositories\ProfileRepositoryInterface as Profile;
 
 class ProfileController extends Controller {
     private $profile;

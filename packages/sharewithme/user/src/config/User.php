@@ -1,5 +1,7 @@
-<?php
+<?php 
+
 return [
-  "user" => "initail"
+  "user" => "User package"
 ];
 
+?>
