@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factory;
       
       foreach ( $providers as $provider) {
         $this->app->bind(
-            "Sharewithme\User\Repositories\\{$provider}RepositoryInterface",
+            "Sharewithme\User\Repositories\\Contracts\\{$provider}RepositoryInterface",
             "Sharewithme\User\Repositories\\{$provider}Repository"
         );
       }

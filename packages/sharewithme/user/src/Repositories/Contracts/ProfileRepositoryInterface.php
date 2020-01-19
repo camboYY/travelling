@@ -1,4 +1,4 @@
-<?php namespace Sharewithme\User\Repositories;
+<?php namespace Sharewithme\User\Repositories\Contracts;
 
 interface ProfileRepositoryInterface {
       /**
@@ -13,7 +13,7 @@ interface ProfileRepositoryInterface {
      *
      * @return mixed
      */
-    public function all();
+    public function all($perPage = null);
 
     /**
      * Deletes a Profile.

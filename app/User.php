@@ -5,11 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens;
+    use Notifiable, HasApiTokens, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -42,13 +43,7 @@ class User extends Authenticatable
      * Get the profile record associated with the user.
      */
     public function profile () {
-        return $this->hasOne('App\Modules\User\Models\Profile');
+        return $this->hasOne('Sharewithme\User\Models\Profile');
     }
 
-    /**
-     * Get the reset password record associated with the user.
-     */
-    public function resetPassword () {
-        return $this->hasOne('App\Modules\User\Models\PasswordReset', 'phone_number');
-    }
 }

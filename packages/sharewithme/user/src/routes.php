@@ -6,10 +6,15 @@ Route::prefix('api')->namespace('Sharewithme\User\Http\Controllers')->group(func
 
   Route::post('verify/password', 'ForgetPasswordController@verify');
 
-  Route::middleware('auth:api')->group(function(){
-    Route::get('/user', function (Request $request) {
-      return $request->user();
-    });
+  Route::middleware('auth:api')->prefix('users')->group(function(){
+    Route::get('/','ProfileController@all');
 
+    Route::get('/profile/{profileId}','ProfileController@get');
+
+    Route::post('/profile','ProfileController@store');
+
+    Route::post('/profile/{profileId}','ProfileController@edit');
+
+    Route::delete('/profile/{profileId}','ProfileController@delete');
   });
 });

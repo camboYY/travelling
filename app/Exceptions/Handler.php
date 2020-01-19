@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Validation\ValidationException;
+
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -46,6 +48,27 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
+            return response()->json(['error' => 'Entry for '.str_replace('App\\', '', $exception->getModel()).' not found'], 404);
+        } else if ($exception instanceof \Illuminate\Database\QueryException) {
+            return response()->json(['error' => 'Integrity constraint violation. Duplicate entry '], 500);
+        } 
+        if($exception instanceof ValidationException) {
+            return $this->invalidJson($request, $exception);
+        }
+
         return parent::render($request, $exception);
+    }
+
+    /**
+ * Convert a validation exception into a JSON response.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @param  \Illuminate\Validation\ValidationException  $exception
+ * @return \Illuminate\Http\JsonResponse
+ */
+    protected function invalidJson($request, ValidationException $exception)
+    {
+        return response()->json($exception->errors(), $exception->status);
     }
 }

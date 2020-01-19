@@ -1,4 +1,4 @@
-<?php namespace Sharewithme\User\Repositories;
+<?php namespace Sharewithme\User\Repositories\Contracts;
 
 interface ResetPasswordRepositoryInterface {
       /**ResetPasswordRepositoryInterface

@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Sharewithme\User\Http\Requests\PasswordResetRequest;
 use Sharewithme\User\Http\Resources\PasswordResetResource;
-use Sharewithme\User\Repositories\ResetPasswordRepositoryInterface as PasswordReset;
+use Sharewithme\User\Repositories\Contracts\ResetPasswordRepositoryInterface as PasswordReset;
 
 
 class ForgetPasswordController extends Controller {

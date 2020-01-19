@@ -12,11 +12,11 @@ class ProfileRequest extends FormRequest {
  */
   public function rules () {
     return [
-      'first_name' => 'nullable',
-      'last_name' => 'nullable',
+      'first_name' => 'required',
+      'last_name' => 'required',
       'middle_name' => 'nullable',
       'place_of_birth' => 'nullable',
-      'date_of_birth' => 'nullable|date',
+      'date_of_birth' => 'required|date|date_format:Y-m-d',
     ];
   }
 

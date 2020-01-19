@@ -1,6 +1,9 @@
 <?php namespace Sharewithme\User\Repositories;
-use App\Modules\User\Models\Profile;
-class ProfileRepository extends ProfileRepositoryInterface {
+use Sharewithme\User\Models\Profile;
+use Sharewithme\User\Repositories\Abstracts\ProfileAbstract;
+use Sharewithme\User\Repositories\Contracts\ProfileRepositoryInterface;
+
+class ProfileRepository extends ProfileAbstract implements ProfileRepositoryInterface {
 
   protected $profile;
 
@@ -12,8 +15,8 @@ class ProfileRepository extends ProfileRepositoryInterface {
     return $this->profile->find($profileId);
   }
 
-  public function all () {
-    return $this->profile->all();
+  public function all ($perPage =  null) {
+    return $this->profile->paginate($perPage);
   }
 
   public function  delete ( $profileId ) {
@@ -21,7 +24,9 @@ class ProfileRepository extends ProfileRepositoryInterface {
   }
 
   public function update ($profileId, array $profiles) {
-    return $this->profile->find($profileId)->update($profiles);
+     if ($this->profile->find($profileId)->update($profiles)) {
+       return $this->profile->find($profileId);
+     }
   }
 
   public function create ( array $profiles ) {

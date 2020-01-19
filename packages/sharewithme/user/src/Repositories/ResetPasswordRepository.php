@@ -1,7 +1,10 @@
 <?php namespace Sharewithme\User\Repositories;
 use Sharewithme\User\Models\PasswordReset;
+use Sharewithme\User\Repositories\Contracts\ResetPasswordRepositoryInterface;
+use Sharewithme\User\Repositories\Abstracts\ResetPasswordAbstract;
 
-class ResetPasswordRepository implements ResetPasswordRepositoryInterface {
+
+class ResetPasswordRepository extends ResetPasswordAbstract  implements ResetPasswordRepositoryInterface {
 
   protected $passwordReset;
 
