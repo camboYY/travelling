@@ -4,7 +4,7 @@ namespace Sharewithme\User\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class RoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|alpha_num',
+            'guard_name' => 'nullable|alpha_num'
         ];
     }
 }
