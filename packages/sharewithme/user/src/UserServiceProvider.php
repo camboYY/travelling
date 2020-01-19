@@ -24,6 +24,10 @@ use Illuminate\Database\Eloquent\Factory;
       if ($this->app->config->get('User') === null) {
         $this->app->config->set('User', require __DIR__ . '/config/User.php');
       }
+
+      $this->mergeConfigFrom(
+        __DIR__ . '/config/User.php', 'User'
+      );
     }
 
     public function boot () {
@@ -38,11 +42,13 @@ use Illuminate\Database\Eloquent\Factory;
       ]);
 
       $this->publishes([
-        __DIR__ . '/config/User.php' => config_path('User.php'),
-      ]);
+        __DIR__.'/database/migrations/' => database_path('migrations')
+      ], 'migrations');
+
       $this->publishes([
-        __DIR__.'/views' => resource_path('views/vendor/user'),
-      ]);
+        __DIR__ . '/config/User.php' => config_path('User.php'),
+      ], 'config');
+
     } 
 
     protected function loadFactoriesFrom ($path) {
