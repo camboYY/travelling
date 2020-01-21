@@ -28,7 +28,7 @@ abstract class ProfileAbstract {
      * @param profileId int
      * @param profiles array
      */
-    public abstract function update($profileId, array $profiles);
+    public abstract function edit($profileId, array $profiles);
 
     /**
      * create a profile.

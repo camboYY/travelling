@@ -28,7 +28,7 @@ interface ProfileRepositoryInterface {
      * @param profileId int
      * @param profiles array
      */
-    public function update($profileId, array $profiles);
+    public function edit($profileId, array $profiles);
 
     /**
      * create a profile.

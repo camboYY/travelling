@@ -7,7 +7,7 @@ class ProfileRepository extends ProfileAbstract implements ProfileRepositoryInte
 
   protected $profile;
 
-  public function __construct ( Profile $profile ) {
+  public function __construct ( Profile  $profile ) {
     $this->profile = $profile;
   }
 
@@ -20,11 +20,11 @@ class ProfileRepository extends ProfileAbstract implements ProfileRepositoryInte
   }
 
   public function  delete ( $profileId ) {
-    return $this->profile->destroy($profileId);
+    return $this->profile->delete($profileId);
   }
 
   public function update ($profileId, array $profiles) {
-     if ($this->profile->find($profileId)->update($profiles)) {
+     if ($this->profile->find($profileId)->edit($profiles)) {
        return $this->profile->find($profileId);
      }
   }
